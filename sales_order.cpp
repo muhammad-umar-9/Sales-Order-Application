@@ -12,5 +12,6 @@ int main()
 
     cout<<"Umar is pagal";
     cout<<"Tatty Omer";
+    cout<<"Tatty Omer";
  return 0;
 }
