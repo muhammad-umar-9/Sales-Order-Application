@@ -5,5 +5,6 @@ class new1{
 };
 int main()
 {
+    cout<<"hello";
  return 0;
 }
