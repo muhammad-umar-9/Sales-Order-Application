@@ -82,6 +82,10 @@ void Shopping :: S_menu()
 
 
 }
+void Shopping::S_admin()
+{
+      
+}
 class user
 {
 };
