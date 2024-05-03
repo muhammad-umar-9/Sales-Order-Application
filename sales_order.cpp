@@ -1,20 +1,19 @@
 #include<iostream>
 using namespace std;
-class new1{
 
+
+class admin
+{
 };
+class menu
+{
+};
+class user
+{
+};
+
 int main()
 {
-    cout<<"hello";
-    cout<<"Umar is pagal";
 
-    cout<<"Umar is pagal";
-
-    cout<<"Umar is pagal";
-    cout<<"Tatty Omer";
-    cout<<"Tatty Omer";
-    cout<<"Alhamdulilah Successfully mission Completed";
-    cout<<"good night done by me also ";
-    cout<<"hello world";
  return 0;
 }
