@@ -8,7 +8,7 @@ class admin
 class Shopping
 {
     private:
-        int S_code;
+        int S_code;//mmm
         float S_price;
         float S_discount;
         string S_name;
@@ -82,7 +82,15 @@ void Shopping :: S_menu()
 
 
 }
+<<<<<<< HEAD
 void Shopping :: S_admin()
+=======
+void Shopping::S_admin()
+{
+      
+}
+class user
+>>>>>>> fca54a6fdab1656e059438f68c57aafa95973273
 {
     int choice;
     cout<<"\n\n\n\t\t\t  Adminstrator Menu";
@@ -142,6 +150,7 @@ void Shopping :: S_buyer()
             case 2:
                 S_menu();
                 break;
+
             default:
                 cout<<"Please Select From the Given Option ";
                 goto m;
