@@ -1,12 +1,15 @@
 #include<iostream>
-using namespace std;
 
+using namespace std;
 
 class admin
 {
 };
-class menu
+class Shopping
 {
+      private:
+      int S_code;
+      
 };
 class user
 {
