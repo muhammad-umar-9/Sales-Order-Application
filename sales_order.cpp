@@ -156,6 +156,23 @@ void Shopping :: S_buyer()
                 goto m;
         }
 }
+void shopping :: s_add(){
+    fstream data;
+    int c;
+    int token=0; 
+    float p;
+    float d;
+    string n;.
+    cout<<"\n\n\t\t Add new product";
+    cout<<"\n\n\t Product code of the product ";
+    cin>>pcode;
+    cout<<"\n\n\t Name of product ";
+    cin>>pname;
+    cout<<"\n\n\t Price of product ";
+    cin>>price;
+    cout<<"\n\n\t Discount on product ";
+    cin>>dis;
+}
 
 int main()
 {
