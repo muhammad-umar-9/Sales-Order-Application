@@ -8,27 +8,27 @@ class admin
 class Shopping
 {
       private:
-      int S_code;
-      float S_price;
-      float S_discount;
-      string S_name;
+      int code;
+      float price;
+      float discount;
+      string name;
       public:
-      void S_menu();
-      void S_admin();
-      void S_buyer();
-      void S_add();
-      void S_edit();
-      void S_remove();
-      void S_list();
-      void S_receipt();
+      void menu();
+      void admin();
+      void buyer();
+      void add();
+      void edit();
+      void remove();
+      void list();
+      void receipt();
 
 };
-void Shopping :: S_menu()
+void Shopping :: menu()
 {
       m;
-      int m_choice;
-      string m_email;
-      int m_password;
+      int choice;
+      string email;
+      int password;
       cout<<"\t\t\t\t________________________\n";
       cout<<"\t\t\t\t                        \n";
       cout<<"\t\t\t\t                        \n";
@@ -44,19 +44,19 @@ void Shopping :: S_menu()
       cout<<"\t\t\t\t|                      |\n";
       cout<<"\t\t\t\t                        \n";
       cout<<"\t\t\t\tPlease Select!";
-      cin>>m_choice;
+      cin>>choice;
 
-      switch(m_choice)
+      switch(choice)
       {
             case 1:
                   cout<<"\t\t\t Please Login    \t ";
                    cout<<"\t\t\t Enter Email    \t ";
-                   cin>>m_email;
+                   cin>>email;
                    cout<<"\t\t\t Enter Password \t ";
-                   cin>>m_password;
-            if(m_email = "u2023535@giki.pk" && m_password = "478652")     
+                   cin>>password;
+            if(email = "u2023535@giki.pk" && password = "478652")     
             {
-                  S_admin();
+                  admin();
             }  
             else
             {
@@ -65,7 +65,7 @@ void Shopping :: S_menu()
             break;
             case 2:
             {
-                  S_buyer();
+                  buyer();
             }
             case 3:
             {
@@ -82,10 +82,7 @@ void Shopping :: S_menu()
 
 
 }
-void Shopping::S_admin()
-{
-      
-}
+
 class user
 {
 };
