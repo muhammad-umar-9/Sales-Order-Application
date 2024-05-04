@@ -172,6 +172,36 @@ void shopping :: s_add(){
     cin>>price;
     cout<<"\n\n\t Discount on product ";
     cin>>dis;
+    data.open("database.txt,ios::in");
+    if(!data0)
+    {
+       data.open("database.txt,ios::app|ios::out");
+       data<<" "<<pcode<<" "<<pname<<" "<<price<<dis<<"\n";
+       data.close();
+    }
+    else{
+        data>>c>>n>>p>>d;
+        while(!data.eof())
+        {
+            if(c==pcode)
+            {
+                token++;
+            }
+            data>>a>>c>>n>>p>>d;
+
+        }
+        data.close();
+    
+    if(token==1){
+        goto m;}
+        else{
+            data.open("database.txt,ios::app|ios::out");
+            data<<" "<<pcode<<" "<<pname<<" "<<price<<dis<<"\n";
+            data.close();
+        }
+    }
+    cout<<"\n\n\t\t Record inserted !";
+    
 }
 
 int main()
