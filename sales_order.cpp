@@ -85,7 +85,6 @@ void Shopping :: menu()
 
 class user
 {
-<<<<<<< HEAD
     int choice;
     cout<<"\n\n\n\t\t\t  Adminstrator Menu";
     cout<<"\n\t\t\t|_____1) Add the Product________|";
@@ -197,9 +196,7 @@ void shopping :: s_add(){
     cout<<"\n\n\t\t Record inserted ! ";
     
 }
-=======
 };
->>>>>>> f6a8e885e1f01b4e5059889a59e0fa1045a14d80
 
 int main()
 {
