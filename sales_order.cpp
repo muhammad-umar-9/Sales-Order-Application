@@ -200,7 +200,7 @@ void shopping :: s_add(){
             data.close();
         }
     }
-    cout<<"\n\n\t\t Record inserted !";
+    cout<<"\n\n\t\t Record inserted ! ";
     
 }
 
