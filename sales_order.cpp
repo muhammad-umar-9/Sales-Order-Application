@@ -7,28 +7,28 @@ class admin
 };
 class Shopping
 {
-    private:
-        int S_code;//mmm
-        float S_price;
-        float S_discount;
-        string S_name;
-    public:
-        void S_menu();
-        void S_admin();
-        void S_buyer();
-        void S_add();
-        void S_edit();
-        void S_remove();
-        void S_list();
-        void S_receipt();
+      private:
+      int code;
+      float price;
+      float discount;
+      string name;
+      public:
+      void menu();
+      void admin();
+      void buyer();
+      void add();
+      void edit();
+      void remove();
+      void list();
+      void receipt();
 
 };
-void Shopping :: S_menu()
+void Shopping :: menu()
 {
-      m:
-      int m_choice;
-      string m_email;
-      int m_password;
+      m;
+      int choice;
+      string email;
+      int password;
       cout<<"\t\t\t\t________________________\n";
       cout<<"\t\t\t\t                        \n";
       cout<<"\t\t\t\t                        \n";
@@ -44,19 +44,19 @@ void Shopping :: S_menu()
       cout<<"\t\t\t\t|                      |\n";
       cout<<"\t\t\t\t                        \n";
       cout<<"\t\t\t\tPlease Select!";
-      cin>>m_choice;
+      cin>>choice;
 
-      switch(m_choice)
+      switch(choice)
       {
             case 1:
                   cout<<"\t\t\t Please Login    \t ";
                    cout<<"\t\t\t Enter Email    \t ";
-                   cin>>m_email;
+                   cin>>email;
                    cout<<"\t\t\t Enter Password \t ";
-                   cin>>m_password;
-            if(m_email = "u2023535@giki.pk" && m_password = "478652")     
+                   cin>>password;
+            if(email = "u2023535@giki.pk" && password = "478652")     
             {
-                  S_admin();
+                  admin();
             }  
             else
             {
@@ -65,7 +65,7 @@ void Shopping :: S_menu()
             break;
             case 2:
             {
-                  S_buyer();
+                  buyer();
             }
             case 3:
             {
@@ -82,16 +82,10 @@ void Shopping :: S_menu()
 
 
 }
-<<<<<<< HEAD
-void Shopping :: S_admin()
-=======
-void Shopping::S_admin()
-{
-      
-}
+
 class user
->>>>>>> fca54a6fdab1656e059438f68c57aafa95973273
 {
+<<<<<<< HEAD
     int choice;
     cout<<"\n\n\n\t\t\t  Adminstrator Menu";
     cout<<"\n\t\t\t|_____1) Add the Product________|";
@@ -203,6 +197,9 @@ void shopping :: s_add(){
     cout<<"\n\n\t\t Record inserted ! ";
     
 }
+=======
+};
+>>>>>>> f6a8e885e1f01b4e5059889a59e0fa1045a14d80
 
 int main()
 {
