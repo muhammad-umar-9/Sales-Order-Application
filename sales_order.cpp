@@ -204,9 +204,109 @@ void Shopping :: S_add(){
 
 void Shopping :: S_edit()
 {
+    fstream data,data1;
+    int key;
+    int token=0;
+    int c;
+    float p;
+    float d;
+    string n;
+    cout<<"\n\t\t\t Modify the Record";
+    cout<<"\n\t\t\t Product code: ";
+    cin>>key;
 
+    data.open("database.txt",ios::in);  //checking the file if it exists
+    if(!data)
+    {
+        cout<<"\n\nFile doesnt Exist";
+    }
+    else //open the file but not sameone rather the other
+    {
+        data1.open("database1.txt",ios::app|ios::out); //saving edited data into this file and renaming it to orignal file.
+        data>>code>>name>>price>>discount;
+        while(!data.eof()) //checkimg each and every content of the file
+        {
+            if(key==code)
+            {
+                cout<<"\n\t\tProduct new Code: ";
+                cin>>c;
+                cout<<"\n\t\tName of the Product: ";
+                cin>>n;
+                cout<<"\n\t\tPrice of the Product: ";
+                cin>>p;
+                cout<<"\n\t\tDiscount: ";
+                cin>>d;
+                data1<<" "<<c<<" "<<n<<" "<<p<<" "<<d<<"\n";
+                cout<<"\n\n\t\t Record edited ";
+                token++;
+            }
+            else //if product doesnt matches with product key in the file
+            {
+                data1<<" "<<code<<" "<<name<<" "<<price<<" "<<discount<<"\n";
+            }
+            data>>code>>name>>price>>discount; //old variables
+        }
+        data.close(); //fle closing.
+        data1.close();
+
+        remove("database.txt");
+        rename("database1.txt","database.txt");
+
+        if (token==0)
+        {
+            cout<<"\n\nRecord not found sorry";
+        }
+    }
 }
 
+void Shopping :: S_remove()
+{
+    fstream data,data1;
+    int key;
+    int token=0;
+    int c;
+    float p;
+    float d;
+    string n;
+    cout<<"\n\t\t\t Delete Product: ";
+    cout<<"\n\t\t\t Product code: ";
+    cin>>key;
+
+    data.open("database.txt",ios::in);  //checking the file if it exists
+    if(!data)
+    {
+        cout<<"\n\nFile doesnt Exist";
+    }
+    else //open the file but not sameone rather the other
+    {
+        data1.open("database1.txt",ios::app|ios::out); //saving data into this file and renaming it to orignal file.
+        data>>code>>name>>price>>discount;
+        while(!data.eof()) //checkimg each and every content of the file
+        {
+            if(code==key) //if product by admnstor matches then the product will be removed
+            {
+                cout<<"\n\n\t\t Product deleted successfully";
+                token++;
+            }
+            else
+            {
+                 data1<<" "<<code<<" "<<name<<" "<<price<<" "<<discount<<"\n";
+            }
+            data>>code>>name>>price>>discount;
+        }
+        data.close();
+        data1.close();
+        remove("database.txt");
+        rename("database1.txt","database.txt");
+
+        if(token==0)
+        {
+            cout<<"\n\n Record not found sorry";
+        }
+
+    }  
+
+}
 int main()
 {
 
