@@ -27,7 +27,7 @@ void Shopping :: S_menu()
 {
       m:
       int choice;
-      string email;
+      string email = "u2023535@giki.pk";
       int password;
       cout<<"\t\t\t\t________________________\n";
       cout<<"\t\t\t\t                        \n";
@@ -54,9 +54,9 @@ void Shopping :: S_menu()
                    cin>>email;
                    cout<<"\t\t\t Enter Password \t ";
                    cin>>password;
-            if(email = "u2023535@giki.pk" && password = "478652")     
+            if(email == "u2023535@giki.pk" && password == 478652)     
             {
-                  admin();
+                S_admin();
             }  
             else
             {
@@ -65,7 +65,7 @@ void Shopping :: S_menu()
             break;
             case 2:
             {
-                  buyer();
+                  S_buyer();
             }
             case 3:
             {
