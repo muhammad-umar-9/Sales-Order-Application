@@ -13,19 +13,19 @@ class Shopping
       float discount;
       string name;
       public:
-      void menu();
-      void admin();
-      void buyer();
-      void add();
-      void edit();
-      void remove();
-      void list();
-      void receipt();
+      void S_menu();
+      void S_admin();
+      void S_buyer();
+      void S_add();
+      void S_edit();
+      void S_remove();
+      void S_list();
+      void S_receipt();
 
 };
-void Shopping :: menu()
+void Shopping :: S_menu()
 {
-      m;
+      m:
       int choice;
       string email;
       int password;
@@ -83,18 +83,19 @@ void Shopping :: menu()
 
 }
 
-class user
+void Shopping :: S_admin()
 {
     int choice;
-    cout<<"\n\n\n\t\t\t  Adminstrator Menu";
-    cout<<"\n\t\t\t|_____1) Add the Product________|";
-    cout<<"\n\t\t\t|                               |";
-    cout<<"\n\t\t\t|_____2) Delete the Product_____|";
-    cout<<"\n\t\t\t|                               |";
-    cout<<"\n\t\t\t|_____3) Modify the Product_____|";
-    cout<<"\n\t\t\t|                               |";
-    cout<<"\n\t\t\t|_____4) Return Main Menu_______|";
     m:
+        cout<<"\n\n\n\t\t\t  Adminstrator Menu";
+        cout<<"\n\t\t\t|_____1) Add the Product________|";
+        cout<<"\n\t\t\t|                               |";
+        cout<<"\n\t\t\t|_____2) Delete the Product_____|";
+        cout<<"\n\t\t\t|                               |";
+        cout<<"\n\t\t\t|_____3) Modify the Product_____|";
+        cout<<"\n\t\t\t|                               |";
+        cout<<"\n\t\t\t|_____4) Return Main Menu_______|";
+
         cout<<"\n\n\t Please enter your choice ";
         cin>>choice;
 
@@ -148,8 +149,8 @@ void Shopping :: S_buyer()
                 cout<<"Please Select From the Given Option ";
                 goto m;
         }
-}
-void shopping :: s_add(){
+};
+void Shopping :: S_add(){
     fstream data;
     int c;
     int token=0; 
@@ -195,7 +196,6 @@ void shopping :: s_add(){
     }
     cout<<"\n\n\t\t Record inserted ! ";
     
-}
 };
 
 int main()
