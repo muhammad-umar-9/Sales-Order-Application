@@ -1,5 +1,5 @@
 #include<iostream>
-
+#include<fstream>
 using namespace std;
 
 class admin
@@ -149,54 +149,63 @@ void Shopping :: S_buyer()
                 cout<<"Please Select From the Given Option ";
                 goto m;
         }
-};
+}
 void Shopping :: S_add(){
+    m:
     fstream data;
     int c;
     int token=0; 
     float p;
     float d;
-    string n;.
+    string n;
     cout<<"\n\n\t\t Add new product";
     cout<<"\n\n\t Product code of the product ";
-    cin>>pcode;
+    cin>>code;
     cout<<"\n\n\t Name of product ";
-    cin>>pname;
+    cin>>name;
     cout<<"\n\n\t Price of product ";
     cin>>price;
     cout<<"\n\n\t Discount on product ";
-    cin>>dis;
-    data.open("database.txt,ios::in");
-    if(!data0)
+    cin>>discount;
+    data.open("database.txt",ios::in);
+    if(!data)
     {
-       data.open("database.txt,ios::app|ios::out");
-       data<<" "<<pcode<<" "<<pname<<" "<<price<<dis<<"\n";
+       data.open("database.txt",ios::app|ios::out);
+       data<<" "<<code<<" "<<name<<" "<<price<<discount<<"\n";
        data.close();
     }
     else{
         data>>c>>n>>p>>d;
         while(!data.eof())
         {
-            if(c==pcode)
+            if(c==code)
             {
                 token++;
             }
-            data>>a>>c>>n>>p>>d;
+            data>>c>>n>>p>>d;
 
         }
         data.close();
     
-    if(token==1){
-        goto m;}
-        else{
-            data.open("database.txt,ios::app|ios::out");
-            data<<" "<<pcode<<" "<<pname<<" "<<price<<dis<<"\n";
+        if(token==1)
+        {
+            goto m;
+        }
+        else
+        {
+            data.open("database.txt",ios::app|ios::out);
+            data<<" "<<code<<" "<<name<<" "<<price<<discount<<"\n";
             data.close();
         }
     }
     cout<<"\n\n\t\t Record inserted ! ";
     
-};
+}
+
+void Shopping :: S_edit()
+{
+
+}
 
 int main()
 {
