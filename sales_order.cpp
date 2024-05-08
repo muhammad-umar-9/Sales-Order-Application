@@ -46,7 +46,7 @@ void Shopping :: S_menu()
       cout<<"\t\t\t\tPlease Select!";
       cin>>choice;
 
-      switch(choice)
+      switch(choice)  //we use switch case here 
       {
             case 1:
                   cout<<"\t\t\t Please Login    \t ";
@@ -305,6 +305,84 @@ void Shopping :: S_remove()
         }
 
     }  
+
+}
+void Shopping::S_receipt() //all customer operations takes place here
+{
+    //use arrays to store multiple objects
+    fstream data;
+    int arr_c[100];
+    int arr_q[100];
+    char choice;
+    int  c=0;
+    float discount = 0;
+    float amount = 0;
+    float total = 0;
+
+    cout<<"\n\n\t\t\t\t reciecpt ";
+    data.open("database.txt" , ios::in) //open this file in reading mode
+
+    if(!data) //if data does not exist
+    {
+        cout<<"Empty Data Base ";
+    }
+    else
+    {
+        data.close(); //close file already opened
+
+        S_list()  //if the file is open we have to call list function
+        cout<<"\n_____________________________________________\n";
+        cout<<"\n|                                            |\n";
+        cout<<"\n      Please Place The Order                  \n";
+        cout<<"\n|                                            |\n";
+        cout<<"\n______________________________________________\n";
+        //we have to run specific part of the code every time
+        do
+        {
+            cout<<"\n\n Enter Product Code : ";
+            cin>>arr_c[c];
+            cout<<"\n\n Enter Quantity :     ";
+            cin>>arr_q[c];
+            //if the product of the code entered by the user matches with the product code that is being already entered
+
+            for(int i=0; i<counter; i++)
+            {
+                if(arr_c[c] == arr_q[c])
+                {
+                    cout<<"\n\n\n Duplicate Product code . please try again! ";
+                    goto m;
+                }
+                c++;
+                cout<<"\n\n Do you want to buy another product or not? if yes press Y else no";
+                cin>>choice;
+            }
+            
+
+        } while (choice == 'y');
+
+        cout<<"\n\n\t\t\t_________________RECEIPT___________________________\n";
+        cout<<"\nproduct No \t product Name \t product Quantity \t Price\t amount \t Amount With Discount\n";
+        
+        for(int i = 0; i<c; i++)
+        {
+            data.open("database.txt" , ios::in);
+            data>>pcode>>pname>>price>>dis;
+            while (!data.eof())
+            {
+                if(pcode == arr_c[i])
+                {
+                    amount =price * arr_q[i];
+                    discount = amount - (amount * discount/100);
+                    total = total + discount;
+                    cout<<"\n"<<pcode<<pname<<arr_q[i]<<price<<amount<<discount;
+                }
+            }
+            
+        }
+        
+        
+    }
+
 
 }
 int main()
