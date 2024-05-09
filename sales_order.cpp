@@ -302,23 +302,19 @@ void Shopping ::S_remove()
     }
 }
 
-void shopping :: list()
+void shopping ::s_list()
 {
     fstream data;
-    data.open("database.txt",ios::in);
-    cout<<"\n\n___________________________________________\n";
-    cout<<"ProNo\t\tNAMe\t\tPrice\n";
-    data>>pcode>>pname>>price>>dis;
-    while(!data.eof())
+    data.open("database.txt", ios::in);
+    cout << "\n\n___________________________________________\n";
+    cout << "ProNo\t\tNAMe\t\tPrice\n";
+    data >> code >> name >> price >> discount;
+    while (!data.eof())
     {
-        cout<<pcode<<"\t\t"<<pname<<"\t\t"<<price<<"\n";
-        data>>pcode>>pname>>price>>dis;
-
+        cout << code << "\t\t" << name << "\t\t" << price << "\n";
+        data >> code >> name >> price >> discount;
     }
     data.close();
-
-
-
 }
 
 void Shopping::S_receipt() // all customer operations takes place here
