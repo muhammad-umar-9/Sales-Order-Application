@@ -302,11 +302,11 @@ void Shopping ::S_remove()
     }
 }
 
-void Shopping ::S_list()
+void Shopping::S_list()
 {
     fstream data;
     data.open("database.txt", ios::in);
-    cout << "\n\n___________________________________________\n";
+    cout << "\n\n_\n";
     cout << "ProNo\t\tNAMe\t\tPrice\n";
     data >> code >> name >> price >> discount;
     while (!data.eof())
