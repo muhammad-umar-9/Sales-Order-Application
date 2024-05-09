@@ -167,7 +167,7 @@ m:
     if (!data)
     {
         data.open("database.txt", ios::app | ios::out);
-        data << " " << code << " " << name << " " << price<<" " << discount << "\n";
+        data << " " << code << " " << name << " " << price<< " " << discount << "\n";
         data.close();
     }
     else
@@ -191,7 +191,7 @@ m:
         else
         {
             data.open("database.txt", ios::app | ios::out);
-            data << " " << code << " " << name << " " << price << discount << "\n";
+            data << " " << code << " " << name << " " << price<< " " << discount << "\n";
             data.close();
         }
     }
