@@ -387,6 +387,5 @@ void Shopping::S_receipt() //all customer operations takes place here
 }
 int main()
 {
-
  return 0;
 }
