@@ -330,7 +330,7 @@ void Shopping::S_receipt() //all customer operations takes place here
     {
         data.close(); //close file already opened
 
-        S_list()  //if the file is open we have to call list function
+        S_list();  //if the file is open we have to call list function
         cout<<"\n_____________________________________________\n";
         cout<<"\n|                                            |\n";
         cout<<"\n      Please Place The Order                  \n";
@@ -339,6 +339,7 @@ void Shopping::S_receipt() //all customer operations takes place here
         //we have to run specific part of the code every time
         do
         {
+            m:
             cout<<"\n\n Enter Product Code : ";
             cin>>arr_c[c];
             cout<<"\n\n Enter Quantity :     ";
@@ -387,5 +388,7 @@ void Shopping::S_receipt() //all customer operations takes place here
 }
 int main()
 {
- return 0;
+    Shopping s;
+    s.S_menu();
+    return 0;
 }
