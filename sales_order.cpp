@@ -66,6 +66,7 @@ m:
     case 2:
     {
         S_buyer();
+        break;
     }
     case 3:
     {
@@ -108,8 +109,7 @@ m:
         S_edit();
         break;
     case 4:
-        S_menu();
-        break;
+        return;
     default:
         cout << "Please Select From the Given Option ";
         goto m;
@@ -138,8 +138,7 @@ m:
         break;
 
     case 2:
-        S_menu();
-        break;
+        return;
 
     default:
         cout << "Please Select From the Given Option ";
@@ -168,7 +167,7 @@ m:
     if (!data)
     {
         data.open("database.txt", ios::app | ios::out);
-        data << " " << code << " " << name << " " << price << discount << "\n";
+        data << " " << code << " " << name << " " << price<<" " << discount << "\n";
         data.close();
     }
     else
@@ -179,6 +178,7 @@ m:
             if (c == code)
             {
                 token++;
+                break;
             }
             data >> c >> n >> p >> d;
         }
@@ -364,11 +364,11 @@ void Shopping::S_receipt()
         }
 
         // Ask user if they want to buy another product
-        cout << "\n\n Do you want to buy another product or not? If yes press Y else no: ";
+        cout << "\n\n Do you want to buy another product or not? If yes press Y else No N: ";
         cin >> choice;
 
         c++; // Increment counter outside of the loop
-    } while (choice == 'y');
+    } while (choice == 'y' || choice =='Y');
 
     // Print receipt header
     cout << "\n\n\t\t\t__RECEIPT\n";
