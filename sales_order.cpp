@@ -307,6 +307,12 @@ void Shopping :: S_remove()
     }  
 
 }
+
+
+
+
+
+
 void Shopping::S_receipt() //all customer operations takes place here
 {
     //use arrays to store multiple objects
