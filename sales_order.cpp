@@ -320,7 +320,7 @@ void Shopping::S_receipt() //all customer operations takes place here
     float total = 0;
 
     cout<<"\n\n\t\t\t\t reciecpt ";
-    data.open("database.txt" , ios::in) //open this file in reading mode
+    data.open("database.txt" , ios::in); //open this file in reading mode
 
     if(!data) //if data does not exist
     {
