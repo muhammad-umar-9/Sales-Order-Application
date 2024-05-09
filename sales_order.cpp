@@ -302,7 +302,7 @@ void Shopping ::S_remove()
     }
 }
 
-void shopping ::s_list()
+void Shopping ::S_list()
 {
     fstream data;
     data.open("database.txt", ios::in);
