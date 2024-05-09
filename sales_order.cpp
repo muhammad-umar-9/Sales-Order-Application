@@ -346,7 +346,7 @@ void Shopping::S_receipt() //all customer operations takes place here
             cin>>arr_q[c];
             //if the product of the code entered by the user matches with the product code that is being already entered
 
-            for(int i=0; i<counter; i++)
+            for(int i=0; i<c; i++)
             {
                 if(arr_c[c] == arr_q[c])
                 {
@@ -367,15 +367,15 @@ void Shopping::S_receipt() //all customer operations takes place here
         for(int i = 0; i<c; i++)
         {
             data.open("database.txt" , ios::in);
-            data>>pcode>>pname>>price>>dis;
+            data>>code>>name>>price>>discount;
             while (!data.eof())
             {
-                if(pcode == arr_c[i])
+                if(code == arr_c[i])
                 {
                     amount =price * arr_q[i];
                     discount = amount - (amount * discount/100);
                     total = total + discount;
-                    cout<<"\n"<<pcode<<pname<<arr_q[i]<<price<<amount<<discount;
+                    cout<<"\n"<<code<<name<<arr_q[i]<<price<<amount<<discount;
                 }
             }
             
