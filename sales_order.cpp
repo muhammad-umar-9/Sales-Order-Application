@@ -317,80 +317,86 @@ void Shopping::S_list()
     data.close();
 }
 
-void Shopping::S_receipt() // all customer operations takes place here
+void Shopping::S_receipt()
 {
-    // use arrays to store multiple objects
     fstream data;
     int arr_c[100];
     int arr_q[100];
     char choice;
     int c = 0;
-    float discount = 0;
-    float amount = 0;
     float total = 0;
 
-    cout << "\n\n\t\t\t\t reciecpt ";
+    cout << "\n\n\t\t\t\t Receipt ";
     data.open("database.txt", ios::in); // open this file in reading mode
 
     if (!data) // if data does not exist
     {
         cout << "Empty Data Base ";
+        return;
     }
-    else
+
+    // Display product list
+    S_list();
+
+    cout << "\n_\n";
+    cout << "\n|                                            |\n";
+    cout << "\n      Please Place The Order                  \n";
+    cout << "\n|                                            |\n";
+    cout << "\n__\n";
+
+    // Loop to allow multiple purchases
+    do
     {
-        data.close(); // close file already opened
+    m:
+        cout << "\n\n Enter Product Code : ";
+        cin >> arr_c[c];
+        cout << "\n\n Enter Quantity :     ";
+        cin >> arr_q[c];
 
-        S_list(); // if the file is open we have to call list function
-        cout << "\n_____________________________________________\n";
-        cout << "\n|                                            |\n";
-        cout << "\n      Please Place The Order                  \n";
-        cout << "\n|                                            |\n";
-        cout << "\n______________________________________________\n";
-        // we have to run specific part of the code every time
-        do
-        {
-        m:
-            cout << "\n\n Enter Product Code : ";
-            cin >> arr_c[c];
-            cout << "\n\n Enter Quantity :     ";
-            cin >> arr_q[c];
-            // if the product of the code entered by the user matches with the product code that is being already entered
-
-            for (int i = 0; i < c; i++)
-            {
-                if (arr_c[c] == arr_q[c])
-                {
-                    cout << "\n\n\n Duplicate Product code . please try again! ";
-                    goto m;
-                }
-                c++;
-                cout << "\n\n Do you want to buy another product or not? if yes press Y else no";
-                cin >> choice;
-            }
-
-        } while (choice == 'y');
-
-        cout << "\n\n\t\t\t_________________RECEIPT___________________________\n";
-        cout << "\nproduct No \t product Name \t product Quantity \t Price\t amount \t Amount With Discount\n";
-
+        // Check for duplicate product codes
         for (int i = 0; i < c; i++)
         {
-            data.open("database.txt", ios::in);
-            data >> code >> name >> price >> discount;
-            while (!data.eof())
+            if (arr_c[c] == arr_c[i])
             {
-                if (code == arr_c[i])
-                {
-                    amount = price * arr_q[i];
-                    discount = amount - (amount * discount / 100);
-                    total = total + discount;
-                    cout << "\n"
-                         << code << name << arr_q[i] << price << amount << discount;
-                }
+                cout << "\n\n\n Duplicate Product code. please try again! ";
+                goto m;
+            }
+        }
+
+        // Ask user if they want to buy another product
+        cout << "\n\n Do you want to buy another product or not? If yes press Y else no: ";
+        cin >> choice;
+
+        c++; // Increment counter outside of the loop
+    } while (choice == 'y');
+
+    // Print receipt header
+    cout << "\n\n\t\t\t__RECEIPT\n";
+    cout << "\nProduct No \t Product Name \t Product Quantity \t Price\t Amount \t Amount With Discount\n";
+
+    // Calculate total amount and print receipt details
+    for (int i = 0; i < c; i++)
+    {
+        data.clear(); // clear the end-of-file flag
+        data.seekg(0, ios::beg); // Reset file pointer to the beginning
+
+        while (data >> code >> name >> price >> discount)
+        {
+            if (code == arr_c[i])
+            {
+                float amount = price * arr_q[i];
+                float discountedAmount = amount - (amount * discount / 100);
+                total += discountedAmount;
+                cout << code << "\t\t" << name << "\t\t" << arr_q[i] << "\t\t" << price << "\t\t" << amount << "\t\t" << discountedAmount << endl;
             }
         }
     }
+
+    data.close(); // Close the file after use
+
+    cout << "\n\nTotal Amount: " << total << endl;
 }
+
 int main()
 {
     Shopping s;
