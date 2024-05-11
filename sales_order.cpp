@@ -2,12 +2,21 @@
 #include <fstream>
 using namespace std;
 
-class admin
+class App
 {
+    public:
+    virtual void S_menu() = 0;
+    virtual void S_admin() = 0;
+    virtual void  S_buyer() = 0;
+    virtual void S_add() = 0;
+    virtual void S_edit()= 0;
+    virtual void S_remove()= 0;
+    virtual void S_list()=0 ;
+    virtual void S_receipt()=0 ;
 };
-class Shopping
+class Shopping:public App
 {
-private:
+public:
     int code;
     float price;
     float discount;
