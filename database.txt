@@ -4,3 +4,4 @@
  666 meat 1500 10
  555 laptop 1000 10
  0 cheese 1200 10
+ 222 biscuit 20 1
